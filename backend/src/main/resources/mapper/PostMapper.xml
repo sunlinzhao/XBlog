@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.slz.xblog.mapper.PostMapper">
+
+    <select id="getPostListById" resultType="com.slz.xblog.vo.PostInfoVo">
+        select p.postId,
+               p.title,
+               p.userId,
+               p.viewCount,
+               u.userName,
+               p.status,
+               p.updateTime as lastUpdateTime,
+               group_concat(t.tagId) as tagIds,  -- 聚合标签ID
+               group_concat(t.tagName) as tagNames -- 聚合标签名称
+        from post p
+                 join post_tag pt on p.postId = pt.postId
+                 join tag t on pt.tagId = t.tagId
+                 join user u on p.userId = u.userId
+        where p.userId = #{userId}
+          and p.del = 0
+          and p.status = 1
+        group by p.postId, p.title, p.userId, u.userName, p.status, p.updateTime
+        order by p.updateTime desc
+    </select>
+
+    <select id="getOneById" resultType="com.slz.xblog.vo.PostInfoVo">
+        select p.postId,
+               p.title,
+               p.content,
+               p.userId,
+               p.viewCount,
+               u.userName,
+               p.status,
+               p.updateTime as lastUpdateTime,
+               group_concat(t.tagId)   as tagIds,  -- 聚合标签ID
+               group_concat(t.tagName) as tagNames -- 聚合标签名称
+        from post p
+                 join post_tag pt on p.postId = pt.postId
+                 join tag t on pt.tagId = t.tagId
+                 join user u on p.userId = u.userId
+        where p.postId = #{postId}
+          and p.del = 0
+        group by p.postId, p.title, p.content, p.userId, u.userName, p.status
+        limit 1;
+    </select>
+    <select id="getDraftListById" resultType="com.slz.xblog.vo.PostInfoVo">
+        select p.postId,
+               p.title,
+               p.userId,
+               u.userName,
+               p.status,
+               p.updateTime as lastUpdateTime,
+               group_concat(t.tagId) as tagIds,  -- 聚合标签ID
+               group_concat(t.tagName) as tagNames -- 聚合标签名称
+        from post p
+                 join post_tag pt on p.postId = pt.postId
+                 join tag t on pt.tagId = t.tagId
+                 join user u on p.userId = u.userId
+        where p.userId = #{userId}
+          and p.del = 0
+          and p.status = 0
+        group by p.postId, p.title, p.userId, u.userName, p.status, p.updateTime
+        order by p.updateTime desc
+    </select>
+    <select id="getPostViewRank" resultType="com.slz.xblog.vo.PostInfoVo">
+        SELECT p.postId,
+               p.title,
+               p.userId,
+               u.userName,
+               p.status,
+               p.updateTime AS lastUpdateTime,
+               p.viewCount,
+               GROUP_CONCAT(t.tagId) AS tagIds,  -- 聚合标签ID
+               GROUP_CONCAT(t.tagName) AS tagNames -- 聚合标签名称
+        FROM post p
+                 JOIN post_tag pt ON p.postId = pt.postId
+                 JOIN tag t ON pt.tagId = t.tagId
+                 JOIN user u ON p.userId = u.userId
+        WHERE p.del = 0
+          AND p.status = 1
+        GROUP BY p.postId, p.title, p.userId, u.userName, p.status, p.updateTime, p.createTime, p.viewCount
+        ORDER BY p.viewCount DESC, p.createTime ASC
+        LIMIT 10;
+    </select>
+    <select id="getPublishCount" resultType="com.slz.xblog.vo.PostCountByDayVo">
+        SELECT
+            DATE(date_series.publish_date) AS date,
+            COALESCE(post_counts.post_count, 0) AS count
+        FROM
+            (
+                SELECT
+                    CURDATE() - INTERVAL (a.N + (10 * b.N)) DAY AS publish_date
+                FROM
+                    (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+                     UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a,
+                    (SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+                     UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+            ) date_series
+                LEFT JOIN
+            (
+                SELECT
+                    DATE(createTime) AS publish_date,
+                    COUNT(*) AS post_count
+                FROM
+                    blog.post
+                WHERE
+                    createTime >= CURDATE() - INTERVAL 30 DAY
+                  AND status = '1'  -- 只统计已发布的文章
+                  AND del = 0
+                GROUP BY
+                    publish_date
+            ) post_counts ON date_series.publish_date = post_counts.publish_date
+        WHERE
+            date_series.publish_date >= CURDATE() - INTERVAL 29 DAY
+        ORDER BY
+            date_series.publish_date ASC;
+    </select>
+    <select id="getPostSearchList" resultType="com.slz.xblog.vo.PostInfoVo">
+        SELECT p.postId,
+        p.title,
+        p.userId,
+        p.viewCount,
+        u.userName,
+        p.status,
+        p.updateTime AS lastUpdateTime,
+        GROUP_CONCAT(t.tagId) AS tagIds,  -- 聚合标签ID
+        GROUP_CONCAT(t.tagName) AS tagNames -- 聚合标签名称
+        FROM post p
+        JOIN post_tag pt ON p.postId = pt.postId
+        JOIN tag t ON pt.tagId = t.tagId
+        JOIN user u ON p.userId = u.userId
+        WHERE p.del = 0 AND p.status = '1'
+        <if test="title != null and title != ''">
+            AND p.title LIKE CONCAT('%', TRIM(#{title}), '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            AND u.userName LIKE CONCAT('%', TRIM(#{userName}), '%')
+        </if>
+        <if test="tagName != null and tagName != ''">
+            HAVING tagNames LIKE CONCAT('%', TRIM(#{tagName}), '%')
+        </if>
+        GROUP BY p.postId, p.title, p.userId, p.viewCount, u.userName, p.status, p.updateTime
+        ORDER BY p.viewCount DESC; -- 按浏览量降序排序
+    </select>
+    <update id="updateSelective">
+        update post
+        <set>
+            <if test="userId != null and userId != ''">userId=#{userId,jdbcType=VARCHAR},</if>
+            <if test="title != null and userId != ''">title=#{title,jdbcType=VARCHAR},</if>
+            <if test="content != null">content=#{content,jdbcType=VARCHAR},</if>
+            <if test="status != null and userId != ''">status=#{status,jdbcType=VARCHAR},</if>
+            <if test="createBy != null">createBy=#{createBy,jdbcType=VARCHAR},</if>
+            <if test="updateBy != null">updateBy=#{updateBy,jdbcType=VARCHAR},</if>
+            <if test="createTime != null">createTime=#{createTime},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="del != null">del=#{del,jdbcType=NUMERIC},</if>
+            <if test="remark != null">remark=#{remark,jdbcType=VARCHAR},</if>
+            <if test="version != null">version=#{version,jdbcType=NUMERIC},</if>
+        </set>
+        where postId = #{postId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateViewCount">
+        update post
+        set viewCount = viewCount + 1
+        where postId = #{postId,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

@@ -1,0 +1,67 @@
+spring:
+  jackson:
+    default-property-inclusion: non_null # json 不显示空值
+  config:
+    import: config.properties # 引入配置文件
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 使用阿里 druid 数据源
+    username: ${db.username}
+    password: ${db.password}
+    url: ${db.url}
+    driver-class-name: ${db.driver} # 数据库驱动
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # 设置路径匹配规则，解决 Swagger3.0 兼容问题
+  banner:
+    location: classpath:banner.txt # 更换默认 banner.txt
+  redis:
+    host: 172.25.2.112
+    port: 6379
+  cache:
+    type: redis
+#    redis:
+#      time-to-live: 300000 # 设置缓存的过期时间为 5分钟（单位：毫秒） 【已经配置类设置随机过期时间】
+
+  mail:
+    host: smtp.qq.com
+    username: 2436949535@qq.com
+    password: uxsxdgvanhvfdjjg
+    properties:
+      mail:
+        smtp:
+          auth: true # 这表示启用 SMTP 认证，即在发送邮件时需要使用用户名和密码进行身份验证。
+          starttls:
+            enable: true # 这表示启用 TLS（传输层安全性
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id # 全局主键类型
+      logic-delete-field: del # 全局逻辑删除字段名
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印 sql
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.slz.xblog.entity
+
+# 服务端口
+server:
+  port: 17010
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
+  file:
+    name: logs/myapp.log
+    path: classpath:logs/
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true      # 是否启用合理化
+#  supportMethodsArguments: true # 支持方法参数

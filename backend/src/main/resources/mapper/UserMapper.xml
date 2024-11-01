@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.slz.xblog.mapper.UserMapper">
+    <update id="updateUser" parameterType="com.slz.xblog.vo.UserInfoVo">
+        update user
+        <set>
+            <if test="userName != null and userName != '' ">
+                userName = #{userName},
+            </if>
+        </set>
+        where userId = #{userId}
+    </update>
+
+    <select id="selectUserList" resultType="com.slz.xblog.vo.UserInfoVo">
+        select userId, userName, email, role
+        from user
+        where del = 0
+          and role = '1'
+        order by createTime;
+    </select>
+    <select id="selectUserByEmail" resultType="com.slz.xblog.vo.UserInfoVo">
+        select userId, userName, email, role, password
+        from user
+        where email = #{email}
+          and del = 0
+        limit 1;
+    </select>
+    <select id="getUserViewRank" resultType="com.slz.xblog.vo.UserInfoVo">
+        select u.userId, u.userName, u.email, any_value(sum(p.viewCount)) as viewCount, any_value(p.createTime) createTime
+        from user u
+                 join post p on u.userId = p.userId
+        where p.del = 0
+          and role = '1'
+        group by u.userId
+        order by viewCount desc, createTime asc
+        limit 10;
+    </select>
+</mapper>

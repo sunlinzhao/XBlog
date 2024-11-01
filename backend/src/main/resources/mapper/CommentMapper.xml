@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.slz.xblog.mapper.CommentMapper">
+
+    <update id="deleteByPostId">
+        update comment
+        set del=1
+        where postId = #{postId,jdbcType=VARCHAR}
+    </update>
+    <select id="countByPostId" resultType="java.lang.Integer">
+        select count(*)
+        from comment
+        where del = 0
+          and postId = #{postId}
+    </select>
+    <select id="getCommentsByPostId" resultType="com.slz.xblog.vo.CommentVo">
+        select c.commentId,
+               c.content,
+               c.userId,
+               u.userName,
+               c.createTime
+        from comment c
+                 join user u on c.userId = u.userId
+        where c.del = 0
+          and c.postId = #{postId}
+        order by c.createTime desc
+    </select>
+</mapper>
