@@ -1,13 +1,5 @@
 # Security Policy
 
-## Supported Versions
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x  | :white_check_mark: |
-| 1.1.x  | :x:                |
-| 2.0.x  | :white_check_mark: |
-
 ## Reporting a Vulnerability
 
 To report a security vulnerability, please email [2436949535@qq.com] with a description of the issue and any relevant details.
