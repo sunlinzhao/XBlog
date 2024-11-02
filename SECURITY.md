@@ -4,31 +4,28 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0.0   | :white_check_mark: |
-| 1.1.0   | :white_check_mark: |
-| 1.2.0   | :x:                |
+| 1.0.x  | :white_check_mark: |
+| 1.1.x  | :x:                |
+| 2.0.x  | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it as soon as possible. 
+To report a security vulnerability, please email [2436949535@qq.com] with a description of the issue and any relevant details.
 
-1. **Do not open a public issue**: Instead, please use the following email to report vulnerabilities: [security@example.com](mailto:security@example.com).
-2. **Provide detailed information**: Include steps to reproduce the issue, the impact of the vulnerability, and any other relevant details.
-3. **Wait for a response**: We will acknowledge your report and investigate it as soon as possible.
+## Security Policy Details
 
-## Security Updates
+### Apache License
 
-We will release security updates for the supported versions as needed. Please ensure you keep your version up to date.
+This project is licensed under the Apache License 2.0. You can find the full text of the license in the `LICENSE` file.
 
-## Security Practices
+### Security Updates
 
-To ensure the security of our project, we follow these practices:
+We will notify users of any critical security updates through our GitHub releases page. Please ensure you have notifications enabled for this repository.
 
-- Use environment variables to manage sensitive information.
-- Regularly review dependencies for vulnerabilities.
-- Enable branch protection rules in our Git repository.
-- Conduct code reviews for all pull requests.
+### Contribution Guidelines
 
-## Acknowledgements
+When contributing to this project, please ensure that your code adheres to our security standards and does not introduce any vulnerabilities.
 
-We appreciate the contributions of our security researchers and the community in helping us keep our project secure.
+## Acknowledgments
+
+Thank you for helping us maintain the security of this project!
