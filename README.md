@@ -1,5 +1,31 @@
 # XBlog
 
+## 示例图片
+
+### 登录
+
+![image-20241102183413735](https://s2.loli.net/2024/11/02/DyTYhcHWJAMmxzf.png)
+
+![image-20241102183442938](https://s2.loli.net/2024/11/02/xGVbzcInCNQT74Z.png)
+
+![image-20241102183510958](https://s2.loli.net/2024/11/02/3MJfVdzBxL1CSuG.png)
+
+### 用户端
+
+![image-20241102182929277](https://s2.loli.net/2024/11/02/heOG8NtLUm1JTKr.png)
+
+![image-20241102183543801](https://s2.loli.net/2024/11/02/hi7RrsGpf8oynq4.png)
+
+![image-20241102183150532](https://s2.loli.net/2024/11/02/LrKTAmOtHb74jY2.png)
+
+![image-20241102183212499](https://s2.loli.net/2024/11/02/ZhGMNbBokrfOy6E.png)
+
+### 管理端
+
+![image-20241102183334178](https://s2.loli.net/2024/11/02/uP3b2vEx64QHoSz.png)
+
+
+
 
 ## 需求分析
 
