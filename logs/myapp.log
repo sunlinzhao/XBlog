@@ -1,0 +1,160 @@
+2024-11-02 03:20:47 - Starting Application using Java 11.0.18 on SLZ with PID 29104 (D:\MyProject\Java\Blog\backend\target\classes started by SunLZ in D:\MyProject\Java\Blog)
+2024-11-02 03:20:47 - No active profile set, falling back to 1 default profile: "default"
+2024-11-02 03:20:48 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-11-02 03:20:48 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-02 03:20:48 - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'accessMapper' and 'com.slz.xblog.mapper.AccessMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'commentMapper' and 'com.slz.xblog.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'feedbackMapper' and 'com.slz.xblog.mapper.FeedbackMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'postMapper' and 'com.slz.xblog.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'postTagMapper' and 'com.slz.xblog.mapper.PostTagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'tagMapper' and 'com.slz.xblog.mapper.TagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - Skipping MapperFactoryBean with name 'userMapper' and 'com.slz.xblog.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:20:48 - No MyBatis mapper was found in '[com.slz.xblog.mapper]' package. Please check your configuration.
+2024-11-02 03:20:48 - Tomcat initialized with port(s): 17010 (http)
+2024-11-02 03:20:48 - Starting service [Tomcat]
+2024-11-02 03:20:48 - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-11-02 03:20:48 - Initializing Spring embedded WebApplicationContext
+2024-11-02 03:20:48 - Root WebApplicationContext: initialization completed in 1214 ms
+2024-11-02 03:20:49 - Init DruidDataSource
+2024-11-02 03:20:49 - {dataSource-1} inited
+2024-11-02 03:20:49 - class com.slz.xblog.entity.PostTagEntity ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-11-02 03:20:50 - 
+
+Using generated security password: f500e0ce-17ac-4eb8-ab29-3a3835480642
+
+2024-11-02 03:20:50 - Will not secure any request
+2024-11-02 03:20:50 - Tomcat started on port(s): 17010 (http) with context path ''
+2024-11-02 03:20:51 - Started Application in 3.724 seconds (JVM running for 4.444)
+2024-11-02 03:21:40 - {dataSource-1} closing ...
+2024-11-02 03:21:40 - {dataSource-1} closed
+2024-11-02 03:21:44 - Starting Application using Java 11.0.18 on SLZ with PID 30980 (D:\MyProject\Java\Blog\backend\target\classes started by SunLZ in D:\MyProject\Java\Blog)
+2024-11-02 03:21:44 - No active profile set, falling back to 1 default profile: "default"
+2024-11-02 03:21:44 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-11-02 03:21:44 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-02 03:21:44 - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'accessMapper' and 'com.slz.xblog.mapper.AccessMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'commentMapper' and 'com.slz.xblog.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'feedbackMapper' and 'com.slz.xblog.mapper.FeedbackMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'postMapper' and 'com.slz.xblog.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'postTagMapper' and 'com.slz.xblog.mapper.PostTagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'tagMapper' and 'com.slz.xblog.mapper.TagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - Skipping MapperFactoryBean with name 'userMapper' and 'com.slz.xblog.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:21:44 - No MyBatis mapper was found in '[com.slz.xblog.mapper]' package. Please check your configuration.
+2024-11-02 03:21:45 - Tomcat initialized with port(s): 17010 (http)
+2024-11-02 03:21:45 - Starting service [Tomcat]
+2024-11-02 03:21:45 - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-11-02 03:21:45 - Initializing Spring embedded WebApplicationContext
+2024-11-02 03:21:45 - Root WebApplicationContext: initialization completed in 1095 ms
+2024-11-02 03:21:45 - Init DruidDataSource
+2024-11-02 03:21:45 - {dataSource-1} inited
+2024-11-02 03:21:45 - class com.slz.xblog.entity.PostTagEntity ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-11-02 03:21:47 - 
+
+Using generated security password: 17b2d2a9-5504-4871-8636-578e3e5c4317
+
+2024-11-02 03:21:47 - Will not secure any request
+2024-11-02 03:21:47 - Tomcat started on port(s): 17010 (http) with context path ''
+2024-11-02 03:21:47 - Started Application in 3.612 seconds (JVM running for 4.387)
+2024-11-02 03:22:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-02 03:22:27 - Initializing Servlet 'dispatcherServlet'
+2024-11-02 03:22:27 - Completed initialization in 1 ms
+2024-11-02 03:23:37 - {dataSource-1} closing ...
+2024-11-02 03:23:37 - {dataSource-1} closed
+2024-11-02 03:23:42 - Starting Application using Java 11.0.18 on SLZ with PID 14772 (D:\MyProject\Java\Blog\backend\target\classes started by SunLZ in D:\MyProject\Java\Blog)
+2024-11-02 03:23:42 - No active profile set, falling back to 1 default profile: "default"
+2024-11-02 03:23:42 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-11-02 03:23:42 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-02 03:23:42 - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'accessMapper' and 'com.slz.xblog.mapper.AccessMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'commentMapper' and 'com.slz.xblog.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'feedbackMapper' and 'com.slz.xblog.mapper.FeedbackMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'postMapper' and 'com.slz.xblog.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'postTagMapper' and 'com.slz.xblog.mapper.PostTagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'tagMapper' and 'com.slz.xblog.mapper.TagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - Skipping MapperFactoryBean with name 'userMapper' and 'com.slz.xblog.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:23:42 - No MyBatis mapper was found in '[com.slz.xblog.mapper]' package. Please check your configuration.
+2024-11-02 03:23:43 - Tomcat initialized with port(s): 17010 (http)
+2024-11-02 03:23:43 - Starting service [Tomcat]
+2024-11-02 03:23:43 - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-11-02 03:23:43 - Initializing Spring embedded WebApplicationContext
+2024-11-02 03:23:43 - Root WebApplicationContext: initialization completed in 1025 ms
+2024-11-02 03:23:43 - Init DruidDataSource
+2024-11-02 03:23:43 - {dataSource-1} inited
+2024-11-02 03:23:43 - class com.slz.xblog.entity.PostTagEntity ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-11-02 03:23:44 - 
+
+Using generated security password: 047af1f8-3835-48e1-b7c4-6838147f1be9
+
+2024-11-02 03:23:45 - Will not secure any request
+2024-11-02 03:23:45 - Tomcat started on port(s): 17010 (http) with context path ''
+2024-11-02 03:23:45 - Started Application in 3.582 seconds (JVM running for 4.287)
+2024-11-02 03:23:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-02 03:23:51 - Initializing Servlet 'dispatcherServlet'
+2024-11-02 03:23:51 - Completed initialization in 1 ms
+2024-11-02 03:23:52 - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [282] milliseconds.
+2024-11-02 03:23:53 - 验证码已发送到 2436949535@qq.com
+2024-11-02 03:23:54 - 127.0.0.1：访问路径：/xblog/public/sendCode
+2024-11-02 03:23:54 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379] with root cause
+java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-11-02 03:24:01 - 验证码已发送到 2436949535@qq.com
+2024-11-02 03:24:01 - 127.0.0.1：访问路径：/xblog/public/sendCode
+2024-11-02 03:24:01 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379] with root cause
+java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-11-02 03:25:03 - {dataSource-1} closing ...
+2024-11-02 03:25:03 - {dataSource-1} closed
+2024-11-02 03:40:14 - Starting Application using Java 11.0.18 on SLZ with PID 18708 (D:\MyProject\Java\Blog\backend\target\classes started by SunLZ in D:\MyProject\Java\Blog)
+2024-11-02 03:40:14 - No active profile set, falling back to 1 default profile: "default"
+2024-11-02 03:40:15 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-11-02 03:40:15 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-02 03:40:15 - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'accessMapper' and 'com.slz.xblog.mapper.AccessMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'commentMapper' and 'com.slz.xblog.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'feedbackMapper' and 'com.slz.xblog.mapper.FeedbackMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'postMapper' and 'com.slz.xblog.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'postTagMapper' and 'com.slz.xblog.mapper.PostTagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'tagMapper' and 'com.slz.xblog.mapper.TagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - Skipping MapperFactoryBean with name 'userMapper' and 'com.slz.xblog.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 03:40:15 - No MyBatis mapper was found in '[com.slz.xblog.mapper]' package. Please check your configuration.
+2024-11-02 03:40:16 - Tomcat initialized with port(s): 17010 (http)
+2024-11-02 03:40:16 - Starting service [Tomcat]
+2024-11-02 03:40:16 - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-11-02 03:40:16 - Initializing Spring embedded WebApplicationContext
+2024-11-02 03:40:16 - Root WebApplicationContext: initialization completed in 1264 ms
+2024-11-02 03:40:16 - Init DruidDataSource
+2024-11-02 03:40:16 - removeAbandoned is true, not use in production.
+2024-11-02 03:40:16 - {dataSource-1} inited
+2024-11-02 03:40:16 - class com.slz.xblog.entity.PostTagEntity ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-11-02 03:40:18 - 
+
+Using generated security password: 8102b12b-6094-4011-ab33-fc232070819e
+
+2024-11-02 03:40:18 - Will not secure any request
+2024-11-02 03:40:18 - Tomcat started on port(s): 17010 (http) with context path ''
+2024-11-02 03:40:18 - Started Application in 4.187 seconds (JVM running for 5.013)
+2024-11-02 03:40:19 - {dataSource-1} closing ...
+2024-11-02 03:40:19 - {dataSource-1} closed
