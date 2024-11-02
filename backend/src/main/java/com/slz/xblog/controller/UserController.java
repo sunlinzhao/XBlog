@@ -34,7 +34,7 @@ import java.util.List;
  * @since 2024-10-21
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:17011", allowCredentials = "true")
+@CrossOrigin(origins = "http://139.155.158.230:17011", allowCredentials = "true")
 @RequestMapping("/xblog/user")
 @Api(tags = "用户接口")
 @Slf4j
@@ -186,7 +186,7 @@ public class UserController {
             authorization = authorization.replace("\"", "");
             String token = authorization.substring(7); // 去掉 "Bearer " 前缀
 
-            // 从 token 中获取 userId
+            // 从 token 中获取 SessionId
             String sessionId = jwtTokenUtil.getSessionId(token);
             // 使会话失效
             if (sessionId != null) {
