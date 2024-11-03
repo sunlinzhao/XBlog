@@ -50,7 +50,9 @@ public class SpringTest {
 
     @Test
     public void test() {
-        generatorBone.run();
+//        generatorBone.run();
+        String s = MD5Util.md5WithSalt("admin@admin", "admin@admin");
+        System.out.println(s);
     }
 //    @Test
 //    public void test() {

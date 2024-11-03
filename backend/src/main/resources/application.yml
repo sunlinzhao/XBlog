@@ -1,3 +1,6 @@
+# 服务端口
+server:
+  port: 17010
 spring:
   jackson:
     default-property-inclusion: non_null # json 不显示空值
@@ -9,29 +12,35 @@ spring:
     password: ${db.password}
     url: ${db.url}
     driver-class-name: ${db.driver} # 数据库驱动
+    druid:
+      remove-abandoned: true # 启用超时
+      remove-abandoned-timeout: 180 # 超时
+      log-abandoned: true # 显示超时
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher # 设置路径匹配规则，解决 Swagger3.0 兼容问题
   banner:
     location: classpath:banner.txt # 更换默认 banner.txt
   redis:
-    host: 172.25.2.112
-    port: 6379
+    host: ${redis.host}
+    port: ${redis.port}
   cache:
     type: redis
 #    redis:
 #      time-to-live: 300000 # 设置缓存的过期时间为 5分钟（单位：毫秒） 【已经配置类设置随机过期时间】
 
   mail:
-    host: smtp.qq.com
-    username: 2436949535@qq.com
-    password: uxsxdgvanhvfdjjg
+    host: ${email.host}
+    port: ${email.port}
+    username: ${email.username}
+    password: ${email.password}
     properties:
       mail:
         smtp:
           auth: true # 这表示启用 SMTP 认证，即在发送邮件时需要使用用户名和密码进行身份验证。
           starttls:
             enable: true # 这表示启用 TLS（传输层安全性
+
 
 mybatis-plus:
   global-config:
@@ -44,10 +53,6 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印 sql
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.slz.xblog.entity
-
-# 服务端口
-server:
-  port: 17010
 
 # 日志配置
 logging:

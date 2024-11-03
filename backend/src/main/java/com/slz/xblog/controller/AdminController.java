@@ -20,7 +20,7 @@ import java.util.List;
  * @date : 2024/10/22
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:17011", allowCredentials = "true")
+@CrossOrigin(origins = "http://139.155.158.230:17011", allowCredentials = "true")
 @RequestMapping("/xblog/admin")
 @Api(tags = "管理接口")
 public class AdminController {

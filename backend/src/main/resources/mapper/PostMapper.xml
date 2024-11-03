@@ -116,7 +116,8 @@
             date_series.publish_date ASC;
     </select>
     <select id="getPostSearchList" resultType="com.slz.xblog.vo.PostInfoVo">
-        SELECT p.postId,
+        SELECT
+        p.postId,
         p.title,
         p.userId,
         p.viewCount,
@@ -125,22 +126,30 @@
         p.updateTime AS lastUpdateTime,
         GROUP_CONCAT(t.tagId) AS tagIds,  -- 聚合标签ID
         GROUP_CONCAT(t.tagName) AS tagNames -- 聚合标签名称
-        FROM post p
-        JOIN post_tag pt ON p.postId = pt.postId
-        JOIN tag t ON pt.tagId = t.tagId
-        JOIN user u ON p.userId = u.userId
-        WHERE p.del = 0 AND p.status = '1'
+        FROM
+        post p
+        JOIN
+        post_tag pt ON p.postId = pt.postId
+        JOIN
+        tag t ON pt.tagId = t.tagId
+        JOIN
+        user u ON p.userId = u.userId
+        WHERE
+        p.del = 0
+        AND p.status = '1'
         <if test="title != null and title != ''">
             AND p.title LIKE CONCAT('%', TRIM(#{title}), '%')
         </if>
         <if test="userName != null and userName != ''">
             AND u.userName LIKE CONCAT('%', TRIM(#{userName}), '%')
         </if>
+        GROUP BY
+        p.postId, p.title, p.userId, p.viewCount, u.userName, p.status, p.updateTime
         <if test="tagName != null and tagName != ''">
             HAVING tagNames LIKE CONCAT('%', TRIM(#{tagName}), '%')
         </if>
-        GROUP BY p.postId, p.title, p.userId, p.viewCount, u.userName, p.status, p.updateTime
-        ORDER BY p.viewCount DESC; -- 按浏览量降序排序
+        ORDER BY
+        p.viewCount DESC; -- 按浏览量降序排序
     </select>
     <update id="updateSelective">
         update post

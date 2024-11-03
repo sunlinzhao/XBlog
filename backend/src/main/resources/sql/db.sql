@@ -1,286 +1,137 @@
--- 字典类型表
-DROP TABLE IF EXISTS dict_type;
-CREATE TABLE dict_type
-(
-    typeId     VARCHAR(20) PRIMARY KEY COMMENT '字典类型ID',
-    typeName   VARCHAR(50) NOT NULL COMMENT '字典类型名称',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
 
--- 字典表
-DROP TABLE IF EXISTS dict;
-CREATE TABLE dict
-(
-    dictId     VARCHAR(20) PRIMARY KEY COMMENT '字典ID',
-    typeId     VARCHAR(20) NOT NULL COMMENT '字典类型ID',
-    value      VARCHAR(50) NOT NULL COMMENT '字典值',
-    `desc`     VARCHAR(255) COMMENT '字典描述',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 用户表
-DROP TABLE IF EXISTS user;
-CREATE TABLE user
-(
-    userId     VARCHAR(20) PRIMARY KEY COMMENT '用户ID',
-    userName   VARCHAR(50)  NOT NULL COMMENT '用户名',
-    password   VARCHAR(100) NOT NULL COMMENT '密码',
-    email      VARCHAR(100) NOT NULL COMMENT '邮箱',
-    role       VARCHAR(20)  NOT NULL COMMENT '角色',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 文章表
-DROP TABLE IF EXISTS post;
-CREATE TABLE post
-(
-    postId     VARCHAR(20) PRIMARY KEY COMMENT '文章ID',
-    userId     VARCHAR(20)  NOT NULL COMMENT '用户ID',
-    title      VARCHAR(100) NOT NULL COMMENT '标题',
-    content    TEXT         NOT NULL COMMENT '内容',
-    status     tinyint(1)   DEFAULT 0 COMMENT '状态',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 分类表
-DROP TABLE IF EXISTS cate;
-CREATE TABLE cate
-(
-    cateId     VARCHAR(20) PRIMARY KEY COMMENT '分类ID',
-    cateName   VARCHAR(50) NOT NULL COMMENT '分类名称',
-    `desc`     VARCHAR(255) COMMENT '描述',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 文章-分类关联表
-DROP TABLE IF EXISTS post_cate;
-CREATE TABLE post_cate
-(
-    postId     VARCHAR(20) NOT NULL COMMENT '文章ID',
-    cateId     VARCHAR(20) NOT NULL COMMENT '分类ID',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号',
-    PRIMARY KEY (postId, cateId)
-);
-
--- 评论表
-DROP TABLE IF EXISTS comment;
-CREATE TABLE comment
-(
-    commentId   VARCHAR(20) PRIMARY KEY COMMENT '评论ID',
-    postId      VARCHAR(20) NOT NULL COMMENT '文章ID',
-    userId      VARCHAR(20) NOT NULL COMMENT '用户ID',
-    content     TEXT        NOT NULL COMMENT '内容',
-    commentDate DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '评论时间',
-    status      tinyint(1)           DEFAULT 0 COMMENT '状态',
-    createTime  DATETIME             DEFAULT NULL COMMENT '创建时间',
-    updateTime  DATETIME             DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy    VARCHAR(50)          DEFAULT NULL COMMENT '创建人',
-    updateBy    VARCHAR(50) COMMENT '更新人',
-    del         TINYINT(1)           DEFAULT 0 COMMENT '删除标记',
-    remark      VARCHAR(255)         DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 标签表
-DROP TABLE IF EXISTS tag;
-CREATE TABLE tag
-(
-    tagId      VARCHAR(20) PRIMARY KEY COMMENT '标签ID',
-    tagName    VARCHAR(50) NOT NULL COMMENT '标签名称',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 文章-标签关联表
-DROP TABLE IF EXISTS post_tag;
-CREATE TABLE post_tag
-(
-    postId     VARCHAR(20) NOT NULL COMMENT '文章ID',
-    tagId      VARCHAR(20) NOT NULL COMMENT '标签ID',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号',
-    PRIMARY KEY (postId, tagId)
-);
-
--- 设置表
-DROP TABLE IF EXISTS setting;
-CREATE TABLE setting
-(
-    settingId    VARCHAR(20) PRIMARY KEY COMMENT '设置ID',
-    settingName  VARCHAR(100) NOT NULL COMMENT '设置项',
-    settingValue VARCHAR(255) NOT NULL COMMENT '设置值',
-    createTime   DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime   DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy     VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy     VARCHAR(50) COMMENT '更新人',
-    del          TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark       VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 角色表
-DROP TABLE IF EXISTS role;
-CREATE TABLE role
-(
-    roleId     VARCHAR(20) PRIMARY KEY COMMENT '角色ID',
-    roleName   VARCHAR(50) NOT NULL COMMENT '角色名称',
-    `desc`     VARCHAR(255) COMMENT '描述',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 权限表
-DROP TABLE IF EXISTS auth;
-CREATE TABLE auth
-(
-    authId     VARCHAR(20) PRIMARY KEY COMMENT '权限ID',
-    authName   VARCHAR(50) NOT NULL COMMENT '权限名称',
-    `desc`     VARCHAR(255) COMMENT '描述',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 角色-权限关联表
-DROP TABLE IF EXISTS role_auth;
-CREATE TABLE role_auth
-(
-    roleId     VARCHAR(20) NOT NULL COMMENT '角色ID',
-    authId     VARCHAR(20) NOT NULL COMMENT '权限ID',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号',
-    PRIMARY KEY (roleId, authId)
-);
-
--- 用户-角色关联表
-DROP TABLE IF EXISTS user_role;
-CREATE TABLE user_role
-(
-    userId     VARCHAR(20) NOT NULL COMMENT '用户ID',
-    roleId     VARCHAR(20) NOT NULL COMMENT '角色ID',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号',
-    PRIMARY KEY (userId, roleId)
-);
-
--- 页面表
-DROP TABLE IF EXISTS page;
-CREATE TABLE page
-(
-    pageId       VARCHAR(20) PRIMARY KEY COMMENT '页面ID',
-    title        VARCHAR(100) NOT NULL COMMENT '页面标题',
-    content      TEXT         NOT NULL COMMENT '页面内容',
-    creationDate DATETIME     DEFAULT NULL COMMENT '创建日期',
-    createTime   DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime   DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy     VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy     VARCHAR(50) COMMENT '更新人',
-    del          TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark       VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 菜单表
-DROP TABLE IF EXISTS menu;
-CREATE TABLE menu
-(
-    menuId     VARCHAR(20) PRIMARY KEY COMMENT '菜单ID',
-    menuName   VARCHAR(100) NOT NULL COMMENT '菜单名称',
-    pageId     VARCHAR(20)  NOT NULL COMMENT '页面ID',
-    parentId   VARCHAR(20)  DEFAULT NULL COMMENT '父菜单ID',
-    sortOrder  INT          DEFAULT 0 COMMENT '排序',
-    createTime DATETIME     DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)  DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)   DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255) DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
-);
-
--- 系统访问记录表
 DROP TABLE IF EXISTS access;
-CREATE TABLE access
+create table access
 (
-    logId      VARCHAR(20) PRIMARY KEY COMMENT '访问记录ID',
-    userId     VARCHAR(20)  NOT NULL COMMENT '用户ID',
-    accessTime DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '访问时间',
-    ipAddress  VARCHAR(45)  NOT NULL COMMENT 'IP地址',
-    action     VARCHAR(255) NOT NULL COMMENT '访问动作',
-    createTime DATETIME              DEFAULT NULL COMMENT '创建时间',
-    updateTime DATETIME              DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    createBy   VARCHAR(50)           DEFAULT NULL COMMENT '创建人',
-    updateBy   VARCHAR(50) COMMENT '更新人',
-    del        TINYINT(1)            DEFAULT 0 COMMENT '删除标记',
-    remark     VARCHAR(255)          DEFAULT '' COMMENT '备注',
-    version    INT  DEFAULT 0 COMMENT '版本号'
+    id         varchar(20)                            not null comment '主键'
+        primary key,
+    sessionId  varchar(50)                            not null comment '会话Id',
+    userId     varchar(20)  default '2'               null comment '用户ID，2，表示游客访问',
+    ip         varchar(50)                            null comment 'ip地址',
+    createTime datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    version    int          default 0                 not null comment '版本号',
+    del        tinyint(1)   default 0                 not null comment '删除标志',
+    remark     varchar(255) default ''                null comment '备注'
+)
+    comment '用户访问记录表';
+
+DROP TABLE IF EXISTS comment;
+create table comment
+(
+    commentId  varchar(20)                            not null comment '评论ID'
+        primary key,
+    postId     varchar(20)                            not null comment '文章ID',
+    content    text                                   not null comment '内容',
+    status     tinyint(1)   default 0                 null comment '状态',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号',
+    userId     varchar(20)                            not null comment '用户Id'
+);
+
+DROP TABLE IF EXISTS feedback;
+create table feedback
+(
+    feedbackId varchar(20)                            not null comment '设置ID'
+        primary key,
+    userId     varchar(20)  default '2'               null comment '用户Id 2 为游客',
+    content    varchar(255)                           not null comment '反馈内容',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号'
+)
+    comment '反馈意见表';
+
+DROP TABLE IF EXISTS post;
+create table post
+(
+    postId     varchar(20)                            not null comment '文章ID'
+        primary key,
+    userId     varchar(20)                            not null comment '用户ID',
+    title      varchar(100)                           not null comment '标题',
+    content    text                                   not null comment '内容',
+    status     varchar(1)   default '0'               not null comment '状态 0 草稿，1 发布',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号',
+    viewCount  int          default 0                 not null comment '浏览量'
+);
+
+DROP TABLE IF EXISTS post_tag;
+create table post_tag
+(
+    postId     varchar(20)                            not null comment '文章ID',
+    tagId      varchar(20)                            not null comment '标签ID',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号',
+    primary key (postId, tagId)
+);
+
+DROP TABLE IF EXISTS role;
+create table role
+(
+    roleId     varchar(20)                            not null comment '角色ID'
+        primary key,
+    roleName   varchar(50)                            not null comment '角色名称',
+    `desc`     varchar(255)                           null comment '描述',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号'
 );
 
 
--- 插入基本数据
--- TODO
+DROP TABLE IF EXISTS tag;
+create table tag
+(
+    tagId      varchar(20)                            not null comment '标签ID'
+        primary key,
+    tagName    varchar(50)                            not null comment '标签名称',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号'
+);
+
+DROP TABLE IF EXISTS user;
+create table user
+(
+    userId     varchar(20)                            not null comment '用户ID'
+        primary key,
+    userName   varchar(50)                            not null comment '用户名',
+    password   varchar(100)                           not null comment '密码',
+    email      varchar(100)                           not null comment '邮箱',
+    role       varchar(20)                            not null comment '角色',
+    createTime datetime                               null comment '创建时间',
+    updateTime datetime     default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    createBy   varchar(50)                            null comment '创建人',
+    updateBy   varchar(50)                            null comment '更新人',
+    del        tinyint(1)   default 0                 null comment '删除标记',
+    remark     varchar(255) default ''                null comment '备注',
+    version    int          default 0                 null comment '版本号'
+);

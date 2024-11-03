@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/xblog/user")
-@CrossOrigin(origins = "http://localhost:17011", allowCredentials = "true")
+@CrossOrigin(origins = "http://139.155.158.230:17011", allowCredentials = "true")
 @Api(tags = "用户状态")
 public class AccessController {
     @Resource

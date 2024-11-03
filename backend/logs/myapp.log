@@ -1,0 +1,25 @@
+2024-11-02 16:03:32 - Starting SpringTest using Java 11.0.18 on SLZ with PID 20976 (started by SunLZ in D:\MyProject\Java\Blog\backend)
+2024-11-02 16:03:32 - No active profile set, falling back to 1 default profile: "default"
+2024-11-02 16:03:33 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-11-02 16:03:33 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-02 16:03:33 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'accessMapper' and 'com.slz.xblog.mapper.AccessMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'commentMapper' and 'com.slz.xblog.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'feedbackMapper' and 'com.slz.xblog.mapper.FeedbackMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'postMapper' and 'com.slz.xblog.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'postTagMapper' and 'com.slz.xblog.mapper.PostTagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'tagMapper' and 'com.slz.xblog.mapper.TagMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - Skipping MapperFactoryBean with name 'userMapper' and 'com.slz.xblog.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2024-11-02 16:03:33 - No MyBatis mapper was found in '[com.slz.xblog.mapper]' package. Please check your configuration.
+2024-11-02 16:03:34 - Init DruidDataSource
+2024-11-02 16:03:34 - removeAbandoned is true, not use in production.
+2024-11-02 16:03:34 - {dataSource-1} inited
+2024-11-02 16:03:35 - class com.slz.xblog.entity.PostTagEntity ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-11-02 16:03:37 - 
+
+Using generated security password: a6c3cf66-ff93-4b2c-8217-898d435b0076
+
+2024-11-02 16:03:37 - Will not secure any request
+2024-11-02 16:03:38 - Started SpringTest in 6.059 seconds (JVM running for 6.946)
+2024-11-02 16:03:38 - {dataSource-1} closing ...
+2024-11-02 16:03:38 - {dataSource-1} closed

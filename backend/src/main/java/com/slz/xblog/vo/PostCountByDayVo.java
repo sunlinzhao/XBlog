@@ -21,9 +21,9 @@ import java.util.Date;
 public class PostCountByDayVo implements Serializable { // 序列化
 
     private static final long serialVersionUID = 1L;
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime date; // 日期
+    private Date date; // 日期
     private Integer count; // 数量
 }
